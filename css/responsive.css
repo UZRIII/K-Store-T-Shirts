@@ -1,0 +1,133 @@
+@media (max-width: 1270px) {
+    .spacialProduct .spacialFlex .spacialIcons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* الشبكة مكونة من 3 أعمدة */
+        gap: 20px;
+        justify-items: center; /* توسيط العناصر أفقيًا */
+    }
+
+    .spacialProduct .spacialFlex .spacialIcons .sIcon:nth-child(4) {
+        grid-column: 1 / 2; /* العنصر الرابع يبدأ في العمود الأول من الصف الثاني */
+    }
+
+    .spacialProduct .spacialFlex .spacialIcons .sIcon:nth-child(5) {
+        grid-column: 3 / 4; /* العنصر الخامس يبدأ في العمود الثالث من الصف الثاني */
+    }
+
+    /* .spacialProduct .spacialFlex .spacialIcons {
+        row-gap: 50px; 
+    } */
+}
+
+@media (max-width: 1080px) {
+    .product .productFlex {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
+}
+
+/* Head */
+
+@media (max-width: 1030px) {
+    .trustIcon .trustFlex {
+        flex-direction: column;
+        gap: 50px 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .navBar header .flexHeader .headerLinks .page {
+        display: none;
+    }
+    .spacialProduct .spacialFlex .spacialIcons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px
+    }
+    .spacialProduct .spacialFlex .spacialIcons .sIcon:nth-child(4) {
+        grid-column: auto;
+    }
+    .spacialProduct .spacialFlex .spacialIcons .sIcon:nth-child(5) {
+        grid-column: 1 / 3;
+    }
+    .arrivals .arrivalsFlex {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    .product .productFlex {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    .contact .contactFlex h1 {
+        font-size: 36px;
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 630px) {
+    section .headFlex .headText .h1Head {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 540px) {
+    section .headFlex .headText .h1Head {
+        font-size: 28px;
+    }
+    section .headFlex .headText .pHead {
+        font-size: 16px;
+    }
+    .arrivals .arrivalsFlex {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px 0;
+    }
+    .product .productFlex {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px 0;
+    }
+    .contact .contactFlex h1 {
+        font-size: 30px;
+        max-width: 80%;
+    }
+    .contact .contactFlex p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+    footer .footerFlex .fLinks {
+        flex-direction: column;
+    }
+    footer .footerFlex .fLinks a {
+        margin: 7.5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .spacialProduct .spacialFlex .spacialIcons {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px
+    }
+    .spacialProduct .spacialFlex .spacialIcons .sIcon:nth-child(5) {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 430px) {
+    section .headFlex .headText .h1Head {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 350px) {
+    section .headFlex .headText .h1Head {
+        font-size: 20px;
+    }
+    section .headFlex .headText .pHead {
+        font-size: 14px;
+    }
+    .contact .contactFlex h1 {
+        width: 100%;
+        font-size: 26px;
+    }
+    .contact .contactFlex p {
+        font-size: 12px;
+    }
+}
