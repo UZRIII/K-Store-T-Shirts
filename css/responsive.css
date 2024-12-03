@@ -36,6 +36,12 @@
 }
 
 @media (max-width: 760px) {
+    .navBar header .flexHeader .headerList {
+        display: block;
+    }
+    .navBar header .flexHeader .headerLinks a.logo {
+        margin: 0;
+    }
     .navBar header .flexHeader .headerLinks .page {
         display: none;
     }
@@ -70,6 +76,9 @@
 }
 
 @media (max-width: 540px) {
+    .navBar header .flexHeader .headerList .listWidth {
+        width: 100%;
+    }
     section .headFlex .headText .h1Head {
         font-size: 28px;
     }

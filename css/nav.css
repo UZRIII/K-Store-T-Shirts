@@ -1,10 +1,14 @@
 /* Nav */
 
+body.no-scroll {
+    overflow: hidden; /* تعطيل التمرير */
+}
+
 .navBar {
     width: 100%;
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: var(--white);
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
     z-index: 1000;
 }
@@ -38,6 +42,8 @@
 .navBar header {
     border-bottom: 1px solid var(--navBorder);
     text-transform: capitalize;
+    position: relative;
+    z-index: 5;
 }
 
 .navBar header .flexHeader {
@@ -46,6 +52,177 @@
     justify-content: space-between;
     flex-direction: row;
 }
+
+/* =============== List =============== */
+
+.navBar header .flexHeader .headerList {
+    text-transform: capitalize;
+    justify-self: start;
+    display: none;
+}
+
+.navBar header .flexHeader .headerList .listDetails {
+    display: flex;
+}
+
+.navBar header .flexHeader .headerList .listIcon {
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    box-shadow: none;
+    /* text-decoration: underline; */
+    /* text-underline-offset: .3rem; */
+    background-color: transparent;
+    font-size: 1.4rem;
+    height: 4.4rem;
+    width: 4.4rem;
+    padding: 0;
+    position: initial;
+}
+
+.navBar header .flexHeader .headerList .listIcon.listShadow::before {
+    content: "";
+    top: 100%;
+    left: 0;
+    height: calc(100vh - 100%);
+    width: 100%;
+    display: block;
+    position: absolute;
+    background: rgba(2, 9, 18, .5);
+    pointer-events: none; /* التأكد من أنه لا يستجيب لأحداث الضغط */
+}
+
+.listIcon:not(.listShadow)::before {
+    display: none; /* إخفاء الـ ::before عندما لا تكون القائمة مفتوحة */
+}
+
+.navBar header .flexHeader .headerList .listIcon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* transform: translate(-100%);
+visibility: hidden; */
+/* .navBar header .flexHeader .headerList .listWidth {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 100%;
+    width: 60%;
+    padding: 0;
+    background-color: var(--white);
+    overflow-x: hidden;
+    min-height: calc(100vh - (100% + 41px));
+    border-right: 1px solid var(--navBorder);
+    display: none;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+} */
+
+.navBar header .flexHeader .headerList .listWidth {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 100%;
+    width: 60%;
+    padding: 0;
+    background-color: var(--white);
+    overflow-x: hidden;
+    /* استخدام --effective-height بدلاً من 100vh */
+    min-height: calc(var(--effective-height, 100vh) - var(--nav-height, 0px)); /* الطول مع استبعاد ارتفاع الـ nav */
+    border-right: 1px solid var(--navBorder);
+    display: none;
+    transition: all 0.3s ease-in-out;
+    height: calc(var(--effective-height, 100vh) - var(--nav-height, 0px)); /* الطول الفعلي بعد خصم الـ nav */
+}
+
+
+
+.navBar header .flexHeader .headerList .listWidth.open {
+    display: block;
+}
+
+.navBar header .flexHeader .headerList .listWidth.mHeight {
+    height: calc(100vh - (100%));
+}
+
+.navBar header .flexHeader .headerList .listWidth .list {
+    position: relative;
+    height: 100%;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listGrid {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: space-between;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listLinks {
+    text-transform: uppercase;
+    padding: 2.2rem 0;
+    padding-bottom: 0;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listLinks h2 {
+    padding: 1.1rem 3rem;
+    margin-bottom: .2rem;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listLinks ul {
+    list-style: none;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listLinks ul li  {
+    margin-bottom: .2rem;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listLinks ul li a {
+    padding: 1.1rem 3rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listLinks ul li a:hover {
+    color: rgb(var(--color-foreground));
+    background-color: rgba(2, 9, 18, .04);
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listText {
+    background-color: rgba(2, 9, 18, .03);
+    padding: 2.2rem 3rem;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listText .fText {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listText .fIcons a {
+    color: var(--black);
+    margin: 0 7.5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listText .fIcons a:nth-child(1) {
+    margin-left: 0;
+}
+
+.navBar header .flexHeader .headerList .listWidth .list .listText .fIcons a:last-of-type {
+    margin-right: 0;
+}
+
+/* =============== List =============== */
 
 .navBar header .flexHeader .headerLinks {
     display: flex;
@@ -66,8 +243,9 @@
 }
 
 .navBar header .flexHeader .headerLinks a img {
-    width: 54px;
-    height: 54px;
+    width: 46px;
+    height: auto;
+    /* width: 54px; */
 }
 
 .navBar header .flexHeader .headerLinks .page a {
@@ -120,17 +298,9 @@
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
 /* الوضع الافتراضي للـ nav */
 .navPadding {
-    position: relative;
+    /* position: relative; */
     top: auto;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
     -webkit-transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
